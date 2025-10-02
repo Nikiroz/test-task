@@ -4,9 +4,11 @@ import PlayerResources from './components/Player/Resources.vue'
 import PlayerInfo from './components/Player/Info.vue'
 import CommanderAvatar from './components/Commander/Avatar.vue'
 import CommanderDescription from './components/Commander/Description.vue'
+import Bg from './components/Bg.vue'
 </script>
 
 <template>
+  <Bg> </Bg>
   <div id="infoBlock">
     <CommanderInfo></CommanderInfo>
     <PlayerResources></PlayerResources>
@@ -18,4 +20,6 @@ import CommanderDescription from './components/Commander/Description.vue'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

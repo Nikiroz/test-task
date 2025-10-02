@@ -30,6 +30,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   aspect-ratio: 16/9;
+  position: relative;
 }
 
 #infoBlock,
@@ -39,6 +40,7 @@ body {
   justify-content: start;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 //===Up===
