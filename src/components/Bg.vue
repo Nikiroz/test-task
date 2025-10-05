@@ -17,11 +17,13 @@ import {
     Clock,
     Vector3
 } from 'three'
-import Stats from 'stats.js'
 
-const stats = new Stats()
-stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild(stats.dom)
+import Stats from 'stats.js'
+const stats = new Stats();
+stats.showPanel(0);
+stats.dom.classList.add("fps");
+console.log(stats.dom)
+document.body.appendChild(stats.dom);
 
 const wrap = ref(null)
 
@@ -43,7 +45,6 @@ function lerp(a, b, f) {
     return a * (1 - f) + b * f
 
 }
-
 
 class SparkParticle {
     constructor(scene) {
@@ -187,13 +188,11 @@ class SmokeParticleBlink extends SmokeParticle {
 }
 
 onMounted(() => {
-
+    
     function init() {
         const w = wrap.value.clientWidth;
         const h = wrap.value.clientHeight;
-
         renderer = new WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setSize(w, h, false);
         wrap.value.appendChild(renderer.domElement);
 
@@ -300,17 +299,3 @@ onUnmounted(() => {
     renderer?.dispose();
 })
 </script>
-
-<style lang="scss" scoped>
-#bg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    top: 0;
-}
-</style>

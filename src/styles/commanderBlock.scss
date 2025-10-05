@@ -1,24 +1,35 @@
-#CommanderDescription,
-#CommanderAvatar {
-  width: 100%;
-  height: 100%;
-}
-
-#commanderBlock {
-  flex: 0.84;
-}
+@use './variables' as *;
 
 #CommanderDescription {
   //background: rgba(165, 114, 170, 0.3);
-  flex: 0.62;
+  flex: 0.625;
+  -webkit-mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 95%);
+  mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 95%);
+
+  .testBlock {
+    width: 150px;
+    height: 150px;
+   // background: red;
+  }
 }
 
 #CommanderAvatar {
   //background: rgba(200, 206, 112, 0.3);
-  background-image: url(../assets/commander/full-portrait/HenkPropper.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  flex: 0.38;
-  border: 1px solid rgba(0,0,0,0);
+  padding-top: 17vh;
+  //background-image: url(../assets/commander/full-portrait/HenkPropper.png);
+  //background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: center bottom $headerSize;
+
+  flex: 0.375;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
 }

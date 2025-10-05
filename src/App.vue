@@ -1,16 +1,15 @@
 <script setup>
-import CommanderInfo from './components/Commander/Info.vue'
-import PlayerResources from './components/Player/Resources.vue'
-import PlayerInfo from './components/Player/Info.vue'
-import CommanderAvatar from './components/Commander/Avatar.vue'
-import CommanderDescription from './components/Commander/Description.vue'
+import CommanderInfo from './components/Commander_Info.vue'
+import PlayerResources from './components/Player_Info.vue'
+import CommanderAvatar from './components/Commander_Avatar.vue'
+import CommanderDescription from './components/Commander_Description.vue'
 import Bg from './components/Bg.vue'
 </script>
 
 <template>
-  <Bg> </Bg>
+  <Bg></Bg>
   <div id="infoBlock">
-    <CommanderInfo></CommanderInfo>
+    <CommanderInfo level="16" name="Henk pröpper"></CommanderInfo>
     <PlayerResources></PlayerResources>
     <PlayerInfo></PlayerInfo>
   </div>

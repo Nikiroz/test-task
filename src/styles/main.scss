@@ -1,36 +1,65 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@use './variables' as *;
+
+@font-face {
+  font-family: DIN2014;
+  src: url(../font/DIN2014.ttf);
+}
+
+@font-face {
+  font-family: DIN2014;
+  src: url(../font/DIN2014Bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: DIN2014Stencil;
+  src: url(../font/PFDinStencilW01Bold.ttf);
+  font-weight: bold;
+}
 
 :root {
-  font-family: "Roboto", sans-serif;
-  background-color: #222222;
+  font-family: DIN2014, sans-serif;
+  color: $white;
 }
 
 body {
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  width: 100;
-  height: 100vh;
+  padding: 0;
+}
+
+.fps{
+  display: none;
 }
 
 #app {
   display: flex;
   text-align: center;
   flex-direction: column;
-  max-width: 1920px;
-  max-height: 1080px;
-  min-width: 640px;
-  min-height: 360px;
   margin: 0 auto;
-  width: 100%;
-  height: auto;
-  background-image: url("../bg/Skin\ selector\ list.png");
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/bg/Skin\ selector\ list.png");
   background-size: contain;
   background-repeat: no-repeat;
-  aspect-ratio: 16/9;
+  overflow: hidden;
   position: relative;
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    //display: none !important;
+  }
+}
+
+#bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+
 }
 
 #infoBlock,
@@ -43,7 +72,15 @@ body {
   z-index: 1;
 }
 
-//===Up===
-@import url(./infoBlock.scss);
-//===Down===
-@import url(./commanderBlock.scss);
+#commanderBlock {
+  flex: 1;
+}
+
+#infoBlock {
+  max-height: $headerSize;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
