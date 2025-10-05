@@ -1,5 +1,6 @@
 <script setup>
 import Resource from './Resource.vue'
+import Player_Info from './Player_info.vue';
 </script>
 
 <template>
@@ -10,5 +11,7 @@ import Resource from './Resource.vue'
         <Resource type="steel" :count="50" ico="/src/assets/commander/icon/steel_c.svg"></Resource>
         <Resource type="premium" :count="359" mod="DAYS" ico="/src/assets/commander/icon/premium_c.svg"></Resource>
         <Resource type="lootBox" :count="0" :is-new="true" mod="" ico="/src/assets/commander/icon/lootbox_c.svg"></Resource>       
+        <span class="separator"></span>
+        <Player_Info nickname="test_ivcy" avatarUrl="/src/assets/commander/player/avatar.png" ></Player_Info>
     </div>
 </template>

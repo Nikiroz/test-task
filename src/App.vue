@@ -1,6 +1,6 @@
 <script setup>
 import CommanderInfo from './components/Commander_Info.vue'
-import PlayerResources from './components/Player_Info.vue'
+import ResourcesField from './components/Resources_field.vue'
 import CommanderAvatar from './components/Commander_Avatar.vue'
 import CommanderDescription from './components/Commander_Description.vue'
 import Bg from './components/Bg.vue'
@@ -10,7 +10,7 @@ import Bg from './components/Bg.vue'
   <Bg></Bg>
   <div id="infoBlock">
     <CommanderInfo level="16" name="Henk pröpper"></CommanderInfo>
-    <PlayerResources></PlayerResources>
+    <ResourcesField></ResourcesField>
     <PlayerInfo></PlayerInfo>
   </div>
   <div id="commanderBlock">
