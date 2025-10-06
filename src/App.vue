@@ -11,7 +11,6 @@ import Bg from './components/Bg.vue'
   <div id="infoBlock">
     <CommanderInfo level="16" name="Henk pröpper"></CommanderInfo>
     <ResourcesField></ResourcesField>
-    <PlayerInfo></PlayerInfo>
   </div>
   <div id="commanderBlock">
     <CommanderAvatar></CommanderAvatar>

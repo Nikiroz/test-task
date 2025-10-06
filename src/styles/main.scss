@@ -29,7 +29,7 @@ body {
 
 .fps,
 #app canvas {
-  //display: none !important;
+  display: none !important;
 }
 
 
@@ -37,7 +37,8 @@ body {
   display: flex;
   text-align: center;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
   background-image: url("../assets/bg/Skin\ selector\ list.png");
@@ -45,8 +46,6 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
-
-
 }
 
 #bg {
@@ -57,7 +56,6 @@ body {
   z-index: 0;
   left: 0;
   top: 0;
-
 }
 
 #infoBlock,
@@ -71,13 +69,10 @@ body {
 }
 
 #commanderBlock {
-  flex: 1;
+  flex: 0.84;
 }
 
 #infoBlock {
-  max-height: $headerSize;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 5;
+  flex: 0.16;
 }
