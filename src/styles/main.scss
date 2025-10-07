@@ -18,8 +18,11 @@
 }
 
 :root {
+  --portraitMini: url("/src/assets/commander/mini-portrait/HenkPropper_mini.png");
+  --portraitBig: url("/src/assets/commander/mini-portrait/HenkPropper_mini.png");
   font-family: DIN2014, sans-serif;
   color: $white;
+  user-select: none;
 }
 
 body {
@@ -29,9 +32,8 @@ body {
 
 .fps,
 #app canvas {
-  display: none !important;
+   //display: none !important;
 }
-
 
 #app {
   display: flex;

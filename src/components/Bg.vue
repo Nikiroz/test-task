@@ -22,7 +22,6 @@ import Stats from 'stats.js'
 const stats = new Stats();
 stats.showPanel(0);
 stats.dom.classList.add("fps");
-console.log(stats.dom)
 document.body.appendChild(stats.dom);
 
 const wrap = ref(null)

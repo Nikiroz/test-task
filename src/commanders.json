@@ -1,0 +1,65 @@
+[
+    {
+        "level": "16",
+        "name": "Henk pröpper",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/HenkPropper_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/HenkPropper.png)",
+        "description": "A Lieutenant Admiral of the Royal Netherlands Navy who served as Chairman of the United Defence Staff from 1959 to 1962. "
+    },
+    {
+        "level": "13",
+        "name": "Greg the Garlic Farmer",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/Farmer_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/Farmer.png)",
+        "description": "A legendary shopkeeper and a staple of the Honeywood community. Although he is but a humble garlic farmer, sometimes he ventures out into the world just like his late Grandfather did."
+    },
+    {
+        "level": "80",
+        "name": "High Sorcerer Baradun",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/Baradun_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/Baradun.png)",
+        "description": "According to Greg the Garlic Farmer, he's great, super powerful, and defeated a bunch of orks and even a dragon! Also, Baradun doesn't forego any chances to point out how humble he is. Lovely character, all in all! "
+    },
+    {
+        "level": "26",
+        "name": "Bodger the Blacksmith",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/Blacksmith_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/Blacksmith.png)",
+        "description": "Once just a blacksmith, he was later promoted to quest giver—and his quest is bigger than yours, alright? He’s often seen spending time with his best frenemy and neighbor Greg the Garlic Farmer, much to the dismay of the latter. "
+    },
+    {
+        "level": "99",
+        "name": "Zeus",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/Zeus_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/Zeus.png)",
+        "description": "Olympus—Zeus! His formidable power and commanding presence will help you crush your foes."
+    },
+    {
+        "level": "99",
+        "name": "Poseidon",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/Poseidon_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/Poseidon.png)",
+        "description": "Poseidon, terror of the seas! There is no better commander than the god of the oceans himself. They say his kiss can sink even the most invincible ship."
+    },
+    {
+        "level": "99",
+        "name": "Athena",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/Athena_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/Athena.png)",
+        "description": "The Athena Commander guise is available in the Store for Drachmas. She'll guide you toward victory with her strategic brilliance and spirit of leadership. "
+    },
+    {
+        "level": "18",
+        "name": "Alexander Gromov",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/AlexanderGromov_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/AlexanderGromov.png)",
+        "description": "A former chief of security for government officials, Gromov now operates as a mercenary in the neon-lit chaos of New York 2125"
+    },
+    {
+        "level": "15",
+        "name": "Angela Lutti",
+        "portraitMini": "url('/src/assets/commander/mini-portrait/AngelaLutti_mini.png')",
+        "portraitBig": "url(/src/assets/commander/full-portrait/AngelaLutti.png)",
+        "description": "a special auditor for Legend INC, based in New York 2125. Her audits often lead to financial ruin, earning her both fear and admiration. Angela Lutti is a Commander guise available for Cybercents."
+    }
+]

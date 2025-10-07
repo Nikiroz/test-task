@@ -1,84 +1,139 @@
 @use './variables' as *;
 
-
 #CommanderDescription {
   //background: rgba(165, 114, 170, 0.3);
-  flex: 0.625;
+  flex: 0.6;
+  padding-top: 7vh;
 
   .scrollBlock {
-    width: 250px;
+    width: 10vw;
     height: 100vh;
+    min-width: 70px;
     position: absolute;
     top: 0;
     -webkit-mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 95%);
     mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 95%);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 13.5em;
-    overflow-y: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
     overscroll-behavior: contain;
-    
-    .portrait {
-      width: 135px;
-      height: 135px;
-      display: inline-block;
-      background-position: center center;
-      position: relative;
-      
-      &::before {
-        content: "";
-        width: 106px;
-        height: 100px;
-        border: 2px solid white;
-        position: absolute;
-        bottom: 0;
-        left: 4px;
-      }
 
-      &::after {
-        content: "";
-        width: 135px;
-        height: 135px;
-        background:var(--portrait);
-        background-repeat: no-repeat;
-        background-size: contain;
-        position: absolute;
-        bottom: 2px;
-        left: 0;
-      }
-  
-      &.active {
+    .scrollContainer {
+      padding-top: 22vh;
+      max-height: 100%;
+      overflow-y: hidden;
+
+      cursor: pointer;
+
+      .portrait {
+        width: $portraitSize;
+        height: $portraitSize;
+        display: inline-block;
+        background-position: center center;
+        position: relative;
+        //overflow: hidden;
+        //background-color: green;
+
+        .image {
+          display: inline-block;
+          transition: left 300ms, width 150ms, height 150ms;
+          width: calc($portraitSize - 50px);
+          height: calc($portraitSize - 50px);
+          background: var(--portraitMini);
+          background-repeat: no-repeat;
+          background-size: contain;
+          //background-color: #0080006e;
+          position: absolute;
+          min-width: 45px;
+          min-height: 45px;
+          left: 10px;
+          bottom: 0px;
+        }
+
         &::before {
-          box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
-          -webkit-box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
-          -moz-box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
-          width: 130px;
-          height: 130px;
-          border: 4px solid white;
+          content: "";
+          min-width: 45px;
+          min-height: 45px;
+          transition: box-shadow 300ms, width 150ms, height 150ms;
+          transition-timing-function: ease-in-out;
+          width: calc($portraitSize - 50px);
+          height: calc($portraitSize - 50px);
+          border: 2px solid white;
+          position: absolute;
+          z-index: -1;
+          bottom: 0;
+          left: 0;
         }
 
         &::after {
-          width: 135px;
-          height: 155px;
-          bottom: 1px;
-          left: 5px;
+          content: "";
+          min-width: 45px;
+          min-height: 45px;
+          transition: width 150ms, height 150ms;
+          transition-timing-function: ease-in-out;
+          width: calc($portraitSize - 50px);
+          height: calc($portraitSize - 50px);
+          border: 0;
+          border-bottom: 2px solid white;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+        &.active {
+
+          .image {
+            transition: left 300ms, width 150ms, height 150ms;
+            display: inline-block;
+            width: $portraitSize;
+            height: $portraitSize;
+            left: 5px;
+          }
+
+          &::before {
+            transition: box-shadow 300ms, width 150ms, height 150ms;
+            transition-timing-function: ease-in-out;
+            width: calc($portraitSize - 18px);
+            height: calc($portraitSize - 22px);
+            border: 4px solid $white;
+            box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
+            -webkit-box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
+            -moz-box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
+            min-width: 50px;
+            min-height: 50px;
+          }
+
+          &::after {
+            transition: width 150ms, height 150ms;
+            transition-timing-function: ease-in-out;
+            min-width: 50px;
+            min-height: 50px;
+            width: calc($portraitSize - 10px);
+            height: calc($portraitSize - 10px);
+            border: 0;
+            border-bottom: 4px solid $white;
+          }
+
         }
       }
     }
   }
 }
 
+.spacer {
+  height: $portraitSize;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
 #CommanderAvatar {
   //background: rgba(200, 206, 112, 0.3);
-  //background-image: url(../assets/commander/full-portrait/HenkPropper.png);
-  //background-size: contain;
-  // background-repeat: no-repeat;
-  // background-position: center bottom ;
-
-  flex: 0.375;
-
+  background-image: var(--portraitBig);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  flex: 0.4;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -88,4 +143,5 @@
     height: auto;
     object-fit: contain;
   }
+
 }
