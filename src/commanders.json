@@ -39,7 +39,7 @@
         "name": "Poseidon",
         "portraitMini": "url('/src/assets/commander/mini-portrait/Poseidon_mini.png')",
         "portraitBig": "url(/src/assets/commander/full-portrait/Poseidon.png)",
-        "description": "Poseidon, terror of the seas! There is no better commander than the god of the oceans himself. They say his kiss can sink even the most invincible ship."
+        "description": "Poseidon, terror of the seas! There is no better commander than the god of the oceans himself. They say Poseidon's kiss can sink even the most invincible ship."
     },
     {
         "level": "99",
@@ -60,6 +60,6 @@
         "name": "Angela Lutti",
         "portraitMini": "url('/src/assets/commander/mini-portrait/AngelaLutti_mini.png')",
         "portraitBig": "url(/src/assets/commander/full-portrait/AngelaLutti.png)",
-        "description": "a special auditor for Legend INC, based in New York 2125. Her audits often lead to financial ruin, earning her both fear and admiration. Angela Lutti is a Commander guise available for Cybercents."
+        "description": "A special auditor for Legend INC, based in New York 2125. Her audits often lead to financial ruin, earning her both fear and admiration. Angela Lutti is a Commander guise available for Cybercents."
     }
 ]

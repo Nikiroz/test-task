@@ -1,13 +1,16 @@
 <script setup>
-import { ref, onMounted, nextTick, provide } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import Portrait from './Portrait.vue'
 import Commanders from '../commanders.json'
 
-const scrollContainer = ref(null)
-const activeIndex = ref(0)
+var _activeIndex = 0;
+const scrollContainer = ref(null);
+const activeIndex = ref(0);
 const touchStartY = ref(0);
 const touchDeltaY = ref(0);
 const SWIPE_THRESHOLD = 30;
+const commanderDescriptionBlock = ref(null);
+const avatar = ref(null);
 
 let anchorPx = 0;
 let lock = false;
@@ -18,16 +21,13 @@ function clamp(v, min, max) {
 };
 
 function goTo(index) {
-    if (index === activeIndex.value) {
-        nextTick(() => scrollPortrait())
-        return
-    }
-    activeIndex.value = index
-    nextTick(() => scrollPortrait())
+    play(index);
 }
+
 function updateInfo() {
     emit('update', { name: Commanders[activeIndex.value].name, level: Commanders[activeIndex.value].level });;
 }
+
 function ensureAnchor() {
     const el = scrollContainer.value
     const child = el.children[activeIndex.value]
@@ -38,7 +38,6 @@ function ensureAnchor() {
 
     const offsetFromTop = (chBox.top - elBox.top) + chBox.height / 2
     anchorPx = offsetFromTop
-
 }
 
 function scrollPortrait() {
@@ -65,9 +64,10 @@ function onWheel(e) {
         return
     };
 
-    activeIndex.value = next;
-    scrollPortrait();
+    play(next);
+
     lock = true;
+
     setTimeout(() => {
         lock = false
     }, 500);
@@ -100,20 +100,42 @@ function onTouchEnd() {
     if (Math.abs(dy) >= SWIPE_THRESHOLD) {
         const dir = dy < 0 ? 1 : -1;
         const next = clamp(activeIndex.value + dir, 0, Commanders.length - 1)
+        if (next === activeIndex.value) {
+            return
+        };
         if (next !== activeIndex.value) {
-            activeIndex.value = next
-            nextTick(() => scrollPortrait())
+            play(next);
             return
         }
     }
 
-    nextTick(() => scrollPortrait())
+    play(activeIndex.value);
+}
+
+function play(index) {
+    _activeIndex = index;
+    avatar.value.classList.add('fadeOut');
+}
+
+function onAnimEnd(e) {
+
+    if (e.animationName === 'fadeOut') {
+        avatar.value.classList.add('fadeIn');
+        avatar.value.classList.remove('fadeOut');
+        activeIndex.value = _activeIndex;
+        nextTick(() => scrollPortrait())
+    }
+    if (e.animationName === 'fadeIn') {
+        avatar.value.classList.remove('fadeIn');
+    }
 }
 
 onMounted(() => {
+
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual'
     }
+
     ensureAnchor();
     updateInfo();
 });
@@ -121,7 +143,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div id="CommanderAvatar" :style="{ '--portraitBig': Commanders[activeIndex].portraitBig }">
+    <div id="CommanderAvatar" ref="avatar" :style="{ '--portraitBig': Commanders[activeIndex].portraitBig }" @animationend="onAnimEnd">
     </div>
     <div id="CommanderDescription" @wheel.prevent="onWheel" @touchstart.passive="onTouchStart"
         @touchmove.prevent="onTouchMove" @touchend="onTouchEnd">
@@ -133,29 +155,49 @@ onMounted(() => {
             </div>
         </div>
         <div class="commanderTextBlock">
+
             <div class="inStock">
-                <span>{{ activeIndex + 1 }}/{{ Commanders.length }}</span>
-                <span>IN STOCK</span>
+                <span class="block">{{ activeIndex + 1 }}/{{ Commanders.length }}</span>
+                <span class="text">In stock</span>
             </div>
-            <h1>{{ Commanders[activeIndex].name }}</h1>
+
             <div class="description">
-                <p>{{ Commanders[activeIndex].description }}</p>
-                <div class="type">TYPES OF GUISES</div>
-                <p>
-                    You can select a guise that applies a bonus to battle earnings, changes your Commander's appearance,
-                    and/or applies special effects.
-                </p>
-                <div class="guises">
-                    <div class="national">
-                        <h2>NATIONAL GUISE</h2>
-                        <p>Guise can only be applied to Commanders from specific nations.</p>
-                    </div>
-                    <div class="general">
-                        <h2>NATIONAL GUISE</h2>
-                        <p>Guise can only be applied to Commanders from specific nations.</p>
+                <div class="commanderDescriptionBlock" ref="commanderDescriptionBlock" >
+                    <h1>{{ Commanders[activeIndex].name }}</h1>
+                    <p class="text">{{ Commanders[activeIndex].description }}</p>
+                </div>
+                <div class="type">Types of guises</div>
+                <div class="textBlock">
+                    <p>
+                        You can select a guise that applies a bonus to battle earnings, changes your Commander's
+                        appearance,
+                        and/or applies special effects.
+                    </p>
+                    <div class="guises">
+                        <div class="national">
+                            <div class="div1"> <img src="../assets/commander/icon/guise_personal_c.svg" alt="">
+                            </div>
+                            <div class="div2">
+                                <h2>National guise</h2>
+                            </div>
+                            <div class="div3">
+                                <p>Guise can only be applied to Commanders from specific nations.</p>
+                            </div>
+                        </div>
+                        <div class="general">
+                            <div class="div1"> <img src="../assets/commander/icon/guise_national_c.svg" alt="">
+                            </div>
+                            <div class="div2">
+                                <h2>General guise</h2>
+                            </div>
+                            <div class="div3">
+                                <p>Guise can only be applied to all Commanders</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </template>

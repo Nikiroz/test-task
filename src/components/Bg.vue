@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+
 import { ref, onMounted, onUnmounted } from 'vue'
 import {
     WebGLRenderer,
@@ -17,13 +18,13 @@ import {
     Clock,
     Vector3
 } from 'three'
-
+/*
 import Stats from 'stats.js'
 const stats = new Stats();
 stats.showPanel(0);
 stats.dom.classList.add("fps");
 document.body.appendChild(stats.dom);
-
+*/
 const wrap = ref(null)
 
 let renderer, scene, smokeBgParticles,
@@ -40,9 +41,17 @@ const clock = new Clock();
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
+
 function lerp(a, b, f) {
     return a * (1 - f) + b * f
 
+}
+
+function setMax(){
+    smokeFgParticles.forEach(p => p.setForceVisible(true));
+        setTimeout(() => {
+        smokeFgParticles.forEach(p => p.setForceVisible(false));
+    }, 150);
 }
 
 class SparkParticle {
@@ -162,7 +171,7 @@ class SmokeParticle {
 
 class SmokeParticleBlink extends SmokeParticle {
     constructor(scene, size, color, x, y, z) {
-        super(scene, size, color, x, y, z,"./Smoke.png");
+        super(scene, size, color, x, y, z, "./Smoke.png");
 
         this.minOpacity = 0.3;
         this.maxOpacity = 0.8;
@@ -187,7 +196,7 @@ class SmokeParticleBlink extends SmokeParticle {
 }
 
 onMounted(() => {
-    
+
     function init() {
         const w = wrap.value.clientWidth;
         const h = wrap.value.clientHeight;
@@ -254,7 +263,7 @@ onMounted(() => {
     }
 
     const tick = () => {
-        stats.begin()
+       // stats.begin()
         rafId = requestAnimationFrame(tick)
 
         var delta = clock.getDelta();
@@ -271,7 +280,8 @@ onMounted(() => {
         sparkParticles.forEach(p => p.update(delta, elapsed));
 
         render();
-        stats.end()
+
+      //  stats.end()
     }
 
     function render() {
@@ -279,16 +289,13 @@ onMounted(() => {
         renderer.render(scene, camera);
     }
 
-    function click() {
-        smokeFgParticles.forEach(p => p.setForceVisible(!p.isMaxVisible));
-    }
 
     init();
     handleResize();
     tick();
 
     window.addEventListener('resize', handleResize);
-    //window.addEventListener('click', click);
+
 
 })
 
@@ -297,4 +304,7 @@ onUnmounted(() => {
     window.removeEventListener('resize', handleResize);
     renderer?.dispose();
 })
+
+defineExpose({ setMax });
+
 </script>
