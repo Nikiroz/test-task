@@ -81,22 +81,22 @@
     font-weight: bold;
     font-size: 2.3vmin;
     line-height: 0;
-    gap: 18px;
+    gap: .9em;
     padding-top: 0.3em;
 
     span {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 25px;
-        gap: 2px;
+        height: 1.0em;
+        gap: .1em;
         white-space: nowrap;
         text-transform: uppercase;
 
         .ico {
             img {
                 width: auto;
-                height: 25px;
+                height: 1.0em;
             }
         }
 
@@ -105,10 +105,9 @@
 
             &::before {
                 content: '';
-                width: 45px;
-                --p: 6px;
-                /* control the shape (can be percentage) */
-                height: 20px;
+                width: 2em;
+                height: .9em;
+                --p: .3em;
                 aspect-ratio: 3/2;
                 clip-path: polygon(var(--p) 0, 100% 0, calc(100% - var(--p)) 100%, 0 100%);
                 background: $red;
@@ -119,17 +118,15 @@
 
             &::after {
                 content: 'NEW';
-                width: 45px;
-                --p: 6px;
-                /* control the shape (can be percentage) */
-                height: 20px;
+                width: 2em;
+                height: .9em;
+                --p: .3em;
                 aspect-ratio: 3/2;
                 color: $white;
                 font-size: .6em;
-
                 position: absolute;
                 top: -.25em;
-                right: -1.55em;
+                right: -0.85em;
             }
         }
 
@@ -142,22 +139,23 @@
             color: $green;
 
             img {
-                margin-top: -5px;
+                margin-top: -.1em;
             }
         }
 
         &.premium,
         &.lootBox {
             img {
-                height: 28px;
+                height: 1.2em;
             }
         }
     }
 
     .separator {
         background: $white;
-        width: 5px;
-        height: 65px;
+        width: .1em;
+        height: 80%;
+        max-height: 65px;
         margin: 0 10px;
     }
 
@@ -169,7 +167,9 @@
 
         .avatar {
             img {
-                width: 70px;
+                max-height: 70px;
+                height: 100%;
+                width: auto;
             }
         }
     }
