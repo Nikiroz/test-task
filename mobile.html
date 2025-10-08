@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/fav.svg" />
+    <title>Mobile Embed</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #05070c;
+      }
+      iframe {
+        border: 0;
+        width: 852px;
+        height: 393px;
+        max-width: 100%;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      }
+      .iphone{
+        position: absolute;
+        width: 900px;
+        height: 440px;
+        background: url(src/assets/bg/iphone.png);
+        background-size: cover;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="iphone"></div>
+    <iframe
+      src="/index.html"
+      width="852"
+      height="393"
+      title="Commander app mobile view"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>
