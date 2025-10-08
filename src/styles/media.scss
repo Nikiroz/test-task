@@ -1,20 +1,38 @@
 @media (max-width: 1024px) {
 
     #infoBlock {
+        //background: #1b6e23;
+        flex: 0.2;
+
         #commanderInfo {
             padding: 0;
         }
     }
 
+    #commanderBlock {
+        flex: 0.8;
+    }
+
     #CommanderDescription {
 
         flex: 0.65;
+        padding-top: 0;
 
         .scrollBlock {
             width: 11vw;
             font-size: 2vmin;
+
+            .scrollContainer {
+                padding-top: 0;
+                padding-top: 13vh;
+
+                &::before {
+                    top: calc(13vh + var(--portraitSize) + 1em);
+                }
+            }
         }
-        .commanderTextBlock{
+
+        .commanderTextBlock {
             font-size: 2.35vmin;
         }
     }
@@ -24,8 +42,7 @@
     }
 
     #commanderInfo {
-        padding: 0;
-        justify-content: center;
+
         flex: 0.35;
     }
 
